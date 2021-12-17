@@ -1,0 +1,9 @@
+server/node_modules/
+server/logs/
+server/.env
+server/.DS_Store
+server/test/
+server/upload/
+server/Dockerfile
+nginx/
+.DS_Store
