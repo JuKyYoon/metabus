@@ -5,5 +5,5 @@ server/.DS_Store
 server/test/
 server/upload/
 server/Dockerfile
-nginx/
 .DS_Store
+nginx

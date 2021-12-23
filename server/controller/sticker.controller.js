@@ -1,5 +1,5 @@
 import path from 'path';
-import ImageService from '../service/sticker.service.js';
+import StickerService from '../service/sticker.service.js';
 import response from '../model/response.js';
 
 export default class StickerController {
@@ -8,7 +8,7 @@ export default class StickerController {
      */
     static uploadSticker = async (req, res, next) => {
         try {
-            const url = await ImageService.uploadSticker(req);
+            const url = await StickerService.uploadSticker(req);
             return res.status(201).json(new response(201, 'success', url));
         } catch (err) {
             next(err);
@@ -23,6 +23,15 @@ export default class StickerController {
             const name = req.params.filename;
             const filepath = process.env.NODE_ENV == 'dev' ? path.resolve('upload/' + name) : '/app/upload/' + name;
             return res.sendFile(filepath);
+        } catch (err) {
+            next(err);
+        }
+    };
+
+    static getStickerUsingGps = async (req, res, next) => {
+        try {
+            const url = await StickerService.getStickerUsingGps(req);
+            return res.status(201).json(new response(201, 'success', url));
         } catch (err) {
             next(err);
         }

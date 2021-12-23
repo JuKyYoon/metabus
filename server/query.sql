@@ -23,8 +23,11 @@ create table `STICKER` (
     `originname` VARCHAR(255) NOT NULL,
     `filename` VARCHAR(255) NOT NULL,
     `auth` INT NULL,
-    `gps` VARCHAR(30) NOT NULL,
+    `lat` DECIMAL(15,10),
+    `lon` DECIMAL(15,10),
     PRIMARY KEY (`stickerid`),
+    INDEX `index_lat` (`lat` ASC) ,
+    INDEX `index_lon` (`lon` ASC) ,
     CONSTRAINT `STICKER_MAKER` FOREIGN KEY (`mobileid`) REFERENCES `USERS` (`mobileid`) ON UPDATE CASCADE
 );
 
